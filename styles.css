@@ -9,6 +9,9 @@
   --muted: #9ca8c2;
   --accent: #4ea3ff;
   --accent-2: #70d8ff;
+  --accent-purple: #8b5cf6;
+  --accent-teal: #2dd4bf;
+  --accent-gold: #fbbf24;
   --shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
   --radius: 24px;
   --radius-sm: 16px;
@@ -27,7 +30,8 @@ body {
   margin: 0;
   font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(78, 163, 255, 0.12), transparent 24%),
+    radial-gradient(circle at top left, rgba(78, 163, 255, 0.16), transparent 24%),
+    radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.16), transparent 21%),
     linear-gradient(135deg, #02050a 0%, var(--bg) 40%, #07121e 100%);
   color: var(--text);
   min-height: 100vh;
@@ -208,6 +212,14 @@ a {
   letter-spacing: -0.03em;
 }
 
+.hero h1,
+.section-heading h2 {
+  background: linear-gradient(90deg, var(--text) 0%, var(--accent-2) 45%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .hero-text,
 .section-heading p,
 .why-item p,
@@ -245,14 +257,20 @@ a {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent) 0%, #1d67ff 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 40%, var(--accent-purple) 100%);
   box-shadow: 0 10px 35px rgba(78, 163, 255, 0.24);
 }
 
 .btn-secondary {
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(45, 212, 191, 0.24);
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(14px);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  box-shadow: 0 10px 25px rgba(45, 212, 191, 0.16);
+  border-color: rgba(139, 92, 246, 0.34);
 }
 
 .hero-microcopy {
@@ -274,9 +292,9 @@ a {
   position: relative;
   min-height: 560px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(78, 163, 255, 0.2);
   background: linear-gradient(135deg, rgba(7, 14, 28, 0.95), rgba(4, 7, 13, 0.9));
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), inset 0 0 0 1px rgba(45, 212, 191, 0.08);
   overflow: hidden;
 }
 
@@ -411,6 +429,69 @@ a {
   line-height: 1.5;
 }
 
+.partner-strip {
+  padding-top: 0;
+}
+
+.partner-shell {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.partner-card {
+  position: relative;
+  padding: 1.6rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(135deg, rgba(9, 16, 30, 0.95), rgba(5, 9, 18, 0.9));
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(45, 212, 191, 0.08) inset;
+  overflow: hidden;
+}
+
+.partner-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(78, 163, 255, 0.2), transparent 42%);
+  pointer-events: none;
+}
+
+.partner-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.partner-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.partner-logo {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  padding: 0.55rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.partner-brand h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  line-height: 1.1;
+}
+
+.partner-brand p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .section-heading {
   max-width: 700px;
   margin-bottom: 2rem;
@@ -440,9 +521,9 @@ a {
   padding: 1.35rem;
   border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(135deg, rgba(10, 18, 34, 0.9), rgba(6, 10, 18, 0.8));
+  background: linear-gradient(135deg, rgba(10, 18, 34, 0.92), rgba(6, 10, 18, 0.82));
   backdrop-filter: blur(18px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(78, 163, 255, 0.08) inset;
   overflow: hidden;
 }
 
@@ -452,7 +533,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 0%, rgba(78, 163, 255, 0.12) 50%, transparent 100%);
+  background: linear-gradient(120deg, transparent 0%, rgba(78, 163, 255, 0.12) 30%, rgba(139, 92, 246, 0.16) 55%, rgba(45, 212, 191, 0.12) 75%, transparent 100%);
   transform: translateX(-100%);
   transition: transform 0.75s ease;
   pointer-events: none;
@@ -693,6 +774,15 @@ a {
   .vision-card h2,
   .cta-card h2 {
     font-size: 2.2rem;
+  }
+
+  .partner-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-brand {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
