@@ -8,7 +8,7 @@
   --text: #f6f9ff;
   --muted: #9ca8c2;
   --accent: #4ea3ff;
-  --accent-2: #70d8ff;
+  --accent-2: #1ba9dc;
   --accent-purple: #8b5cf6;
   --accent-teal: #2dd4bf;
   --accent-gold: #fbbf24;
@@ -582,6 +582,161 @@ a {
   color: #dbeafc;
 }
 
+.founder-section > .eyebrow {
+  margin-bottom: 2rem;
+}
+
+.founder-profile {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: center;
+}
+
+.founder-visual {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.founder-visual::before {
+  content: "";
+  position: absolute;
+  inset: 8% 6%;
+  border: 1px solid rgba(78, 163, 255, 0.16);
+  background: radial-gradient(circle at 50% 42%, rgba(78, 163, 255, 0.18), transparent 58%);
+  box-shadow: inset 0 0 70px rgba(27, 169, 220, 0.06);
+  z-index: -1;
+}
+
+.founder-visual::after {
+  content: "FOUNDER / FALCONLAB";
+  position: absolute;
+  bottom: 3%;
+  left: 8%;
+  color: whitesmoke;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+}
+
+.founder-glow {
+  position: absolute;
+  width: 68%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(78, 163, 255, 0.2), transparent 68%);
+  filter: blur(14px);
+  z-index: -1;
+}
+
+.founder-image {
+  width: min(78%, 360px);
+  max-height: 420px;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.42));
+}
+
+.founder-content h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, var(--text) 0%, var(--accent-2) 45%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.founder-copy p {
+  max-width: 680px;
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.founder-copy strong {
+  color: #dbeafc;
+  font-weight: 600;
+}
+
+.founder-roles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1.7rem;
+}
+
+.founder-role {
+  padding: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.founder-role span,
+.founder-label {
+  color: var(--accent-2);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.founder-role h3 {
+  margin: 0.5rem 0 0.35rem;
+  font-size: 0.98rem;
+}
+
+.founder-role p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.founder-footer {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.founder-tech p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.founder-link {
+  flex-shrink: 0;
+  color: var(--accent-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.founder-link span {
+  display: inline-block;
+  margin-left: 0.25rem;
+  transition: transform 0.25s ease;
+}
+
+.founder-link:hover,
+.founder-link:focus-visible {
+  color: var(--text);
+}
+
+.founder-link:hover span,
+.founder-link:focus-visible span {
+  transform: translateX(3px);
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -709,14 +864,49 @@ a {
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
   .hero,
   .why-layout {
     grid-template-columns: 1fr;
   }
 
+  .founder-profile {
+    gap: 2rem;
+  }
+
   .hero-visual {
     min-height: 480px;
+  }
+
+  .hero-panel {
+    padding: 0.85rem 0.9rem;
+    border-radius: 18px;
+  }
+
+  .panel-top {
+    top: 8%;
+    left: 7%;
+    width: 155px;
+  }
+
+  .panel-right {
+    top: 8%;
+    right: 7%;
+    width: 160px;
+  }
+
+  .panel-left {
+    top: auto;
+    bottom: 8%;
+    left: 7%;
+    width: 155px;
+  }
+
+  .panel-bottom {
+    top: auto;
+    right: 7%;
+    bottom: 8%;
+    width: 160px;
   }
 
   .ecosystem-grid,
@@ -751,14 +941,71 @@ a {
   }
 
   .panel-main {
-    width: min(80%, 280px);
+    width: min(64%, 280px);
+    min-height: 200px;
+  }
+
+  .hero-panel {
+    padding: 0.7rem 0.75rem;
+    border-radius: 16px;
+  }
+
+  .hero-panel strong {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .panel-header {
+    gap: 0.4rem;
+    margin-bottom: 0.7rem;
+    font-size: 0.76rem;
+  }
+
+  .panel-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
   }
 
   .panel-top,
-  .panel-bottom,
   .panel-left,
+  .panel-right,
+  .panel-bottom {
+    width: 132px;
+  }
+
+  .panel-top {
+    top: 6%;
+    left: 4%;
+  }
+
   .panel-right {
-    width: 150px;
+    top: 6%;
+    right: 4%;
+  }
+
+  .panel-left {
+    top: auto;
+    bottom: 6%;
+    left: 4%;
+  }
+
+  .panel-bottom {
+    top: auto;
+    right: 4%;
+    bottom: 6%;
+  }
+
+  .panel-main {
+    animation: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .panel-top,
+  .panel-left,
+  .panel-right,
+  .panel-bottom {
+    z-index: 2;
   }
 
   .ecosystem-grid,
@@ -783,6 +1030,30 @@ a {
   .partner-brand {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .founder-profile {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .founder-visual {
+    min-height: 300px;
+    order: 0;
+  }
+
+  .founder-image {
+    width: min(68%, 280px);
+    max-height: 300px;
+  }
+
+  .founder-roles {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-footer {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
