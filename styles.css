@@ -247,7 +247,7 @@ a {
   padding: 0.95rem 1.25rem;
   border-radius: 999px;
   font-weight: 600;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
   border: 1px solid transparent;
 }
 
@@ -257,20 +257,27 @@ a {
 }
 
 .btn-primary {
+  border-color: rgba(255, 255, 255, 0.28);
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 40%, var(--accent-purple) 100%);
-  box-shadow: 0 10px 35px rgba(78, 163, 255, 0.24);
+  box-shadow: 0 10px 30px rgba(78, 163, 255, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .btn-secondary {
-  border-color: rgba(45, 212, 191, 0.24);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(45, 212, 191, 0.48);
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.1), rgba(78, 163, 255, 0.06));
   backdrop-filter: blur(14px);
+  box-shadow: 0 6px 20px rgba(27, 169, 220, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  box-shadow: 0 10px 25px rgba(45, 212, 191, 0.16);
-  border-color: rgba(139, 92, 246, 0.34);
+  box-shadow: 0 10px 28px rgba(45, 212, 191, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-color: rgba(45, 212, 191, 0.72);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
 }
 
 .hero-microcopy {
@@ -552,6 +559,51 @@ a {
 .timeline-step h3 {
   margin: 0 0 0.5rem;
   font-size: 1.15rem;
+}
+
+.ecosystem-grid > a,
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgba(45, 212, 191,  0.38);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.12), rgba(78, 163, 255, 0.1));
+  color: #dffbff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.2;
+  box-shadow: 0 5px 16px rgba(27, 169, 220, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card-action > span {
+  transition: transform 0.25s ease;
+}
+
+.ecosystem-grid > a:hover .card-action,
+.ecosystem-grid > a:focus-visible .card-action,
+.demo-card:hover .card-action,
+.demo-card:focus-visible .card-action {
+  border-color: rgba(45, 212, 191, 0.68);
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.22), rgba(78, 163, 255, 0.16));
+  box-shadow: 0 8px 22px rgba(27, 169, 220, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.ecosystem-grid > a:hover .card-action > span,
+.ecosystem-grid > a:focus-visible .card-action > span,
+.demo-card:hover .card-action > span,
+.demo-card:focus-visible .card-action > span {
+  transform: translateX(2px);
 }
 
 .why-layout {

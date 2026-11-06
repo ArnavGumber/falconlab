@@ -98,7 +98,7 @@ img {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
-  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease, border-color 220ms ease;
 }
 
 .btn:hover {
@@ -108,14 +108,26 @@ img {
 
 .btn-primary {
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   background: linear-gradient(135deg, var(--primary), var(--accent));
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(0, 194, 255, 0.1), rgba(255, 255, 255, 0.045));
+  border: 1px solid rgba(0, 194, 255, 0.42);
+  box-shadow: 0 8px 22px rgba(0, 194, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(0, 194, 255, 0.72);
+  box-shadow: 0 14px 30px rgba(0, 194, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .btn-small {
